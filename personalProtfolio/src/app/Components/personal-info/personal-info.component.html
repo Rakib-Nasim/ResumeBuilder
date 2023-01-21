@@ -1,0 +1,103 @@
+<section>
+  <div class="container text-start mt-4 " style="background-color: rgb(167, 163, 163);">
+    <h3>Personal Information</h3>
+    <div class="card text-start mt-4 " style="border: none;">
+       <form [formGroup]="personalForm"  style="background-color: rgb(167, 163, 163);">
+          <div class="form-group mb-2" >
+            <label class="mb-2">Name<i class="text-danger">*</i></label>
+            <input formControlName="personName" type="text" class="form-control">
+            <div *ngIf="hasError('personName')">
+              <span class="text-danger">Name is required</span>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <select formControlName="countryId" class="form-control" [(ngModel)]="country"
+            (ngModelChange)="getCity(country)" >
+            <option value="0">Select Country</option>
+              <option *ngFor="let val of listOfCountry" 
+              [value]="val.countryId">{{val.countryName}}</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <select formControlName="cityId" class="form-control" [(ngModel)]="city">
+              <option value="0"> Select City</option>
+              <option *ngFor="let val of listOfCity" [value]="val.cityId">{{val.cityName}}</option>
+            </select>
+          </div>
+          <div>
+            <label class="mb-2 mt-2">Language Skill<i class="text-danger">*</i></label>
+            <div class="row mt-2" style="margin-left:20px ;">
+              <div class="col-md-1" *ngFor="let skl of listSkill">
+                <label style="margin-right: 5px;">{{skl.skillName}}</label>
+                <input type="checkbox" name="{{skl.skillId}}" [value]="skl.skillId" (change)="getId($event,skl.skillId)" >
+              </div>
+              
+            </div>
+          </div>
+          <div class="mb-2 mt-2">
+             <label class="mb-2">Date Of Birth<i class="text-danger">*</i></label>
+             <input formControlName="dateOfBirth" class="form-control mb-4" type="date">
+          </div>
+
+
+          <div class="mb-2">
+            <input formControlName="files" id="file" type="file" (change)="selectFileEvent($event)">
+            <div *ngIf="hasError('files')">
+              <span class="text-danger">Required Field</span>
+            </div>
+         </div>
+         
+         <div class="mb-2 mt-2 text-end mr-6">
+           <div>
+             <button class="btn btn-success" (click)="savePerson()">Save</button>
+           </div>
+         </div>
+
+       </form>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container mt-4" style="background-color: rgb(167, 163, 163);">
+    <div class="card-header mt-4 text-start"><h4>Informations</h4></div>
+    <table class="table table-bordered">
+       <tr >
+        <th>SN</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>City</th>
+        <th>Language Skill</th>
+        <th>Resume Name</th>
+        <th>Date Of Birth</th>
+        <th style="text-align:center ;" >Action</th>
+       </tr>
+       <tr *ngFor="let i of listOfPerson; let j=index">
+        <td>{{j+1}}</td>
+        <td>{{i.personName}}</td>
+        <td>{{i.countryName}}</td>
+        <td>{{i.cityName}}</td>
+        <td>{{i.skill}}</td>
+        <!-- <td>{{i.photo}}</td> -->
+        <td>
+          <img style="weight: 40px !important;height: 60px;" [src]="'data:image/'+i.photo+';base64,'+i.images"></td>
+        <td>{{i.dateOfBirth}}</td>
+        <td>
+          <button class="btn btn-info" style="margin-right: 5px;background-color: #64ccf2; ">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+          <button class="btn btn-success" style="margin-right: 5px; background-color: rgb(65, 137, 65);">
+            <i class="fa-solid fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger"
+          (click)="delete(i.personalId)" style="background-color:rgb(249, 37, 37) ;">
+            <i class="fa-solid fa-xmark"></i>
+          </button> 
+        </td>
+        
+       </tr>
+    </table>
+  </div>
+</section>
