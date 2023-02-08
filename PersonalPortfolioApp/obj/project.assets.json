@@ -5986,11 +5986,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\EnosisSolution\\PersonalPortfolioApp\\PersonalPortfolioApp.csproj",
+      "projectUniqueName": "E:\\ResumeBuilder\\PersonalPortfolioApp\\PersonalPortfolioApp.csproj",
       "projectName": "PersonalPortfolioApp",
-      "projectPath": "E:\\EnosisSolution\\PersonalPortfolioApp\\PersonalPortfolioApp.csproj",
+      "projectPath": "E:\\ResumeBuilder\\PersonalPortfolioApp\\PersonalPortfolioApp.csproj",
       "packagesPath": "C:\\Users\\MD. RAIHAN\\.nuget\\packages\\",
-      "outputPath": "E:\\EnosisSolution\\PersonalPortfolioApp\\obj\\",
+      "outputPath": "E:\\ResumeBuilder\\PersonalPortfolioApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

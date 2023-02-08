@@ -125,5 +125,21 @@ namespace PersonalPortfolioApp.Logicc
         {
           return _dbContext.skillModels.ToList();
         }
+
+        //SqlCommand cmd = new SqlCommand("GetOrder", conn);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //cmd.Parameters.AddWithValue("@Id",id);
+        //conn.Open();
+        //int rowAffected = cmd.ExecuteNonQuery();
+        //conn.Close();
+
+
+
+        //var orderId = new SqlParameter("@Id", id);
+        //var order = _dbContext.Database.ExecuteSqlRaw("EXEC GetOrder @Id", orderId);
+        //var nm = 2;
+
+
+
     }
 }
